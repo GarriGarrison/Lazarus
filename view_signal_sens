@@ -1,0 +1,22 @@
+procedure ViewSignalSens;
+var
+  i: uint16_t;
+begin
+  with MainForm do begin
+    LineNowC.Clear;
+    LineNowR.Clear;
+    LineEarlyC.Clear;
+    LineEarlyR.Clear;
+
+
+    //for i:= DATA_FRAME downto 1 do begin
+    //  LineNowC.AddXY((i - DATA_FRAME)/38, Device.Frame(FRAME_CH_C, 1, i));
+    //  LineNowR.AddXY((i - DATA_FRAME)/38, Device.Frame(FRAME_CH_R, 1, i));
+    //end;
+
+    for i:= 1 to DATA_SAMPLE do begin
+      LineNowC.AddXY(i, Device.Frame(FRAME_CH_C, 1, i));
+      LineEarlyR.AddXY(i, Device.Frame(FRAME_CH_R, 1, i));
+    end;
+  end;
+end;
