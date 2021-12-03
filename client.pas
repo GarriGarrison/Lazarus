@@ -51,7 +51,7 @@ implementation
 procedure TMainForm.btnConnectClick(Sender: TObject);
 begin
   Client:= TTCPBlockSocket.Create;//создаем объект
-  Client.RaiseExcept:=True;//показываем все исключения Winsock
+  Client.RaiseExcept:= true;//показываем все исключения Winsock
   Client.Connect(edAddress.Text,edPort.Text);//пробуем соединиться с сервером
   ShowMessage(rsConnected);
 end;
